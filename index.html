@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PENG | Green Fuels Technology</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- NAV BAR -->
+    <nav class="navbar">
+        <div class="logo">PENG<span class="dot">.</span></div>
+        <ul class="nav-links">
+            <li><a href="#mission" data-i18n="nav_mission">Mission</a></li>
+            <li><a href="#technology" data-i18n="nav_tech">Technology</a></li>
+            <li><a href="#investors" data-i18n="nav_invest">Investors</a></li>
+            <li><a href="#team" data-i18n="nav_team">Team</a></li>
+        </ul>
+        <div class="lang-selector">
+            <select id="language-select">
+                <option value="en">🇨🇦 EN</option>
+                <option value="fr">🇨🇦 FR</option>
+                <option value="pt">🇧🇷 PT</option>
+            </select>
+        </div>
+        <div class="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header class="hero">
+    <!-- Vídeo de Fundo -->
+    <video autoplay muted loop playsinline class="hero-video">
+        <!-- Use um vídeo livre de direitos de autor, ex: Pexels -->
+        <source src="https://www.pexels.com/download/video/6942626/" type="video/mp4">
+    </video>
+    <div class="hero-overlay"></div>
+    
+    <div class="hero-content fade-in">
+        <h1 data-i18n="hero_title">Turning Waste into Clean Energy</h1>
+        <p data-i18n="hero_subtitle">Advanced technology converting flared natural gas into high-value green fuels.</p>
+        <div class="cta-group">
+            <button class="btn primary" onclick="location.href='#calculator'" data-i18n="btn_learn">Calculate ROI</button>
+            <button class="btn secondary" onclick="location.href='#contact'" data-i18n="btn_contact">Contact Us</button>
+        </div>
+    </div>
+</header>
+
+    <!-- MISSION & VALUES -->
+    <section id="mission" class="section bg-light">
+        <div class="container text-center">
+            <h2 data-i18n="mission_title">Our DNA</h2>
+            <p class="mission-statement" data-i18n="mission_text">To accelerate the transition to a circular economy by turning industrial liabilities into clean energy assets.</p>
+            
+            <div class="values-grid">
+                <div class="value-item scroll-reveal">
+                    <i class="fas fa-globe-americas val-icon"></i>
+                    <h4 data-i18n="val_1">Sustainability First</h4>
+                </div>
+                <div class="value-item scroll-reveal">
+                    <i class="fas fa-flask val-icon"></i>
+                    <h4 data-i18n="val_2">Scientific Rigor</h4>
+                </div>
+                <div class="value-item scroll-reveal">
+                    <i class="fas fa-handshake val-icon"></i>
+                    <h4 data-i18n="val_3">Transparency</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOW IT WORKS (Process) -->
+    <section id="process" class="section">
+        <div class="container">
+            <h2 data-i18n="process_title">How It Works</h2>
+            <div class="process-timeline">
+                <div class="process-step scroll-reveal">
+                    <div class="step-icon">🔥</div>
+                    <h3 data-i18n="step1_title">Flare Capture</h3>
+                    <p data-i18n="step1_desc">Collecting wasted natural gas directly at the wellhead.</p>
+                </div>
+                <div class="step-arrow"><i class="fas fa-chevron-right"></i></div>
+                <div class="process-step scroll-reveal" style="transition-delay: 0.2s;">
+                    <div class="step-icon">⚗️</div>
+                    <h3 data-i18n="step2_title">Catalytic Conversion</h3>
+                    <p data-i18n="step2_desc">PENG proprietary reactor transforms gas into liquid fuel.</p>
+                </div>
+                <div class="step-arrow"><i class="fas fa-chevron-right"></i></div>
+                <div class="process-step scroll-reveal" style="transition-delay: 0.4s;">
+                    <div class="step-icon">⛽</div>
+                    <h3 data-i18n="step3_title">Green Fuel</h3>
+                    <p data-i18n="step3_desc">Ready-to-use synthetic diesel with zero sulfur.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TECH SECTION (Researchers) -->
+    <section id="technology" class="section bg-light">
+        <div class="container">
+            <span class="tag" data-i18n="tag_research">For Researchers</span>
+            <h2 data-i18n="tech_title">Thermodynamic Efficiency</h2>
+            <div class="grid-2">
+                <div class="card scroll-reveal">
+                    <i class="fas fa-atom icon"></i>
+                    <h3 data-i18n="tech_card1_title">Process Integration</h3>
+                    <p data-i18n="tech_card1_desc">Proprietary catalytic reform processes that minimize energy loss during the gas-to-liquid transition.</p>
+                </div>
+                <div class="card scroll-reveal">
+                    <i class="fas fa-leaf icon"></i>
+                    <h3 data-i18n="tech_card2_title">Carbon Capture</h3>
+                    <p data-i18n="tech_card2_desc">Built-in modular systems capturing 90% of CO2 emissions directly at the source.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CALCULADORA DE IMPACTO -->
+<section id="calculator" class="section">
+    <div class="container">
+        <h2 data-i18n="calc_title">Estimate Your Impact</h2>
+        <div class="calc-wrapper">
+            <!-- Entradas -->
+            <div class="calc-inputs">
+                <label>
+                    <span data-i18n="lbl_volume">Flare Gas Volume (m³/day)</span>
+                    <input type="range" id="gasInput" min="1000" max="50000" step="1000" value="10000" oninput="calculateImpact()">
+                    <span id="gasValue" class="highlight">10,000</span> m³
+                </label>
+                <p class="note" data-i18n="calc_note">Move the slider to estimate potential production.</p>
+            </div>
+            
+            <!-- Resultados -->
+            <div class="calc-results">
+                <div class="result-card">
+                    <i class="fas fa-gas-pump"></i>
+                    <h3 id="fuelResult">5,200</h3>
+                    <p data-i18n="res_fuel">Liters of Green Diesel / Day</p>
+                </div>
+                <div class="result-card green">
+                    <i class="fas fa-tree"></i>
+                    <h3 id="co2Result">12.5</h3>
+                    <p data-i18n="res_co2">Tons of CO2 Saved / Day</p>
+                </div>
+                <div class="result-card gold">
+                    <i class="fas fa-dollar-sign"></i>
+                    <h3 id="revResult">$8,320</h3>
+                    <p data-i18n="res_rev">Potential Daily Revenue</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- INVESTOR SECTION -->
+    <section id="investors" class="section dark-bg">
+        <div class="container">
+            <span class="tag gold" data-i18n="tag_invest">For Investors</span>
+            <h2 data-i18n="invest_title">Market Opportunity</h2>
+            <div class="stats-grid">
+                <div class="stat-box scroll-reveal">
+                    <h4 data-i18n="stat_1">Global Market</h4>
+                    <span>$45B+</span>
+                </div>
+                <div class="stat-box scroll-reveal">
+                    <h4 data-i18n="stat_2">Scalability</h4>
+                    <span data-i18n="stat_2_val">Modular</span>
+                </div>
+                <div class="stat-box scroll-reveal">
+                    <h4 data-i18n="stat_3">ROI Target</h4>
+                    <span>18-22%</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CEO STORY -->
+    <section id="ceo" class="section">
+        <div class="container split-layout">
+            <div class="ceo-image scroll-reveal">
+                <img src="https://media.licdn.com/dms/image/v2/D5603AQF7faYv-oiO1w/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1675565122430?e=1767830400&v=beta&t=6V5NiWKlnN-FL_YywuXaxDZ3_HWsV5BvW1GOdkKSZsY" alt="CEO PENG">
+                <div class="ceo-badge">
+                    <span data-i18n="ceo_role">Founder & CEO</span>
+                </div>
+            </div>
+            <div class="ceo-content scroll-reveal">
+                <h2 data-i18n="ceo_title">A Vision from the Lab</h2>
+                <blockquote data-i18n="ceo_quote">"We didn't just want to stop flaring; we wanted to make it profitable to stop."</blockquote>
+                <p data-i18n="ceo_bio">Dr. Sarah PENG spent 15 years in chemical engineering research before founding PENG. Her breakthrough in catalytic efficiency is the core of our patent portfolio.</p>
+                <a href="#" class="btn-link" data-i18n="read_bio">Read Full Bio <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- TEAM -->
+    <section id="team" class="section bg-light">
+        <div class="container">
+            <h2 data-i18n="team_title">The Minds Behind PENG</h2>
+            <div class="team-grid">
+                <!-- CTO -->
+                <div class="team-card scroll-reveal">
+                    <div class="team-img" style="background-image: url('https://media.licdn.com/dms/image/v2/D4E03AQF4vS3coR2YHQ/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1687785235884?e=1767830400&v=beta&t=nN8G1MxWW_Kxy_jP3sR7SfYd1m-kBrh1BJlP9t5jYck');"></div>
+                    <div class="team-info">
+                        <h3>Dr. Jildimara Santana</h3>
+                        <span class="role">CTO</span>
+                        <div class="team-socials">
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" title="ResearchGate"><i class="fas fa-graduation-cap"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- CFO -->
+                <div class="team-card scroll-reveal">
+                    <div class="team-img" style="background-image: url('https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80');"></div>
+                    <div class="team-info">
+                        <h3>Mark Davidson</h3>
+                        <span class="role">CFO</span>
+                        <div class="team-socials">
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Engineer -->
+                <div class="team-card scroll-reveal">
+                    <div class="team-img" style="background-image: url('https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80');"></div>
+                    <div class="team-info">
+                        <h3>Alan Tour</h3>
+                        <span class="role">Head of Eng.</span>
+                        <div class="team-socials">
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ACHIEVEMENTS & PATENTS -->
+    <section id="achievements" class="section">
+        <div class="container">
+            <h2 data-i18n="achieve_title">Achievements & IP</h2>
+            <div class="patents-box scroll-reveal">
+                <div class="patent-item">
+                    <i class="fas fa-certificate gold-icon"></i>
+                    <div>
+                        <strong data-i18n="pat_1_code">US Patent 10,234,567</strong>
+                        <p data-i18n="pat_1_desc">High-efficiency catalytic reactor design for flare gas recovery.</p>
+                    </div>
+                </div>
+                <div class="patent-item">
+                    <i class="fas fa-scroll gold-icon"></i>
+                    <div>
+                        <strong data-i18n="paper_1_title">Nature Energy Journal (2023)</strong>
+                        <p data-i18n="paper_1_desc">"Thermodynamic limits of small-scale GTL conversion."</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Photo Gallery -->
+            <div class="gallery-grid">
+                <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Lab" class="gallery-img">
+                <img src="https://images.unsplash.com/photo-1581093458791-9f3c3900df4b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Plant" class="gallery-img">
+                <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Team" class="gallery-img">
+            </div>
+        </div>
+    </section>
+
+    <!-- PARTNERS -->
+    <section id="partners" class="section bg-light">
+        <div class="container text-center">
+            <h4 class="mini-title" data-i18n="partners_title">Supported By & Partners</h4>
+            <div class="partners-grid">
+                <div class="partner-logo">🇨🇦 Government of Canada</div>
+                <div class="partner-logo">CleanTech North</div>
+                <div class="partner-logo">Energy Future Fund</div>
+                <div class="partner-logo">U of Toronto (Research)</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEWSLETTER / CONTACT -->
+    <section id="contact" class="section dark-bg cta-section">
+        <div class="container">
+            <h2 data-i18n="cta_title">Join the Energy Revolution</h2>
+            <p data-i18n="cta_desc">Stay updated on our latest pilot projects and investment rounds.</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="email@company.com" required>
+                <button type="submit" class="btn primary" data-i18n="btn_subscribe">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- INTERACTIVE FOOTER -->
+    <footer class="main-footer">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <h2>PENG<span class="dot">.</span></h2>
+                <p data-i18n="footer_motto">Innovating for a cleaner tomorrow.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-researchgate"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-nav">
+                <h4 data-i18n="ft_company">Company</h4>
+                <ul>
+                    <li><a href="#mission" data-i18n="nav_mission">Mission</a></li>
+                    <li><a href="#team" data-i18n="nav_team">Team</a></li>
+                    <li><a href="#" data-i18n="ft_careers">Careers</a> <span class="badge-hiring">Hiring</span></li>
+                </ul>
+            </div>
+
+            <div class="footer-nav">
+                <h4 data-i18n="ft_legal">Legal</h4>
+                <ul>
+                    <li><a href="#" data-i18n="ft_privacy">Privacy Policy</a></li>
+                    <li><a href="#" data-i18n="ft_terms">Terms of Use</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-contact">
+                <h4 data-i18n="ft_contact">Calgary HQ</h4>
+                <p>123 Innovation Dr.<br>Calgary, AB, Canada</p>
+                <p class="contact-email">invest@peng.ca</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; <span id="year">2024</span> PENG Technologies Inc.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
