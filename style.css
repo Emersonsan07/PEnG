@@ -106,7 +106,7 @@ h2 { font-size: 2.5rem; margin: 1rem 0 3rem 0; color: var(--dark); }
 .btn-link:hover { gap: 1rem; }
 
 /* TEAM CARDS */
-.team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 2rem; }
+.team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2rem; margin-top: 2rem; }
 .team-card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: 0.3s; position: relative; border: 1px solid var(--border); }
 .team-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
 .team-img { height: 320px; background-size: cover; background-position: center; transition: 0.4s; }
