@@ -7,7 +7,7 @@ const translations = {
         hero_subtitle: "Advanced technology converting flared natural gas into high-value green fuels.",
         btn_learn: "Our Technology", btn_contact: "Contact Us",
         mission_title: "Our DNA", mission_text: "To accelerate the transition to a circular economy by turning industrial liabilities into clean energy assets.",
-        val_1: "Sustainability First", val_2: "Scientific Rigor", val_3: "Transparency",
+        val_1: "Sustainability First", val_2: "Scientific Rigor", val_3: "Transparency",        
         process_title: "How It Works", step1_title: "Flare Capture", step1_desc: "Collecting wasted natural gas directly at the wellhead.",
         step2_title: "Catalytic Conversion", step2_desc: "PENG proprietary reactor transforms gas into liquid fuel.",
         step3_title: "Green Fuel", step3_desc: "Ready-to-use synthetic diesel with zero sulfur.",
@@ -25,8 +25,12 @@ const translations = {
         partners_title: "Supported By & Partners", cta_title: "Join the Energy Revolution", cta_desc: "Stay updated on our latest pilot projects and investment rounds.",
         btn_subscribe: "Subscribe", footer_motto: "Innovating for a cleaner tomorrow.",
         ft_company: "Company", ft_careers: "Careers", ft_legal: "Legal", ft_privacy: "Privacy Policy", ft_terms: "Terms of Use", ft_contact: "Calgary HQ",
-        calc_title: "Estimate Your Impact", lbl_volume: "Flare Gas Volume (m³/day)", calc_note: "Move the slider to estimate potential production.",
-        res_fuel: "Liters of Green Diesel / Day", res_co2: "Tons of CO2 Saved / Day", res_rev: "Potential Daily Revenue",
+        calc_title: "Estimate Your Impact", 
+        lbl_volume: "Flare Gas Volume (m³/day)",
+        calc_note: "Move the slider to estimate potential production.",
+        res_fuel: "Production (Liters & bbl / Day)", // ATUALIZADO
+        res_co2: "Tons of CO2 Saved / Day", 
+        res_rev: "Potential Daily Revenue",
         email_placeholder: "email@company.com", msg_success: "Subscribed!", msg_error: "Try Again"
     },
     fr: {
@@ -54,8 +58,12 @@ const translations = {
         partners_title: "Soutenu Par & Partenaires", cta_title: "Rejoignez la Révolution Énergétique", cta_desc: "Restez informé de nos derniers projets pilotes et cycles d'investissement.",
         btn_subscribe: "S'abonner", footer_motto: "Innover pour un demain plus propre.",
         ft_company: "Entreprise", ft_careers: "Carrières", ft_legal: "Légal", ft_privacy: "Politique de Confidentialité", ft_terms: "Conditions d'Utilisation", ft_contact: "Siège Calgary",
-        calc_title: "Estimez Votre Impact", lbl_volume: "Volume de Gaz Torché (m³/jour)", calc_note: "Déplacez le curseur pour estimer la production potentielle.",
-        res_fuel: "Litres de Diesel Vert / Jour", res_co2: "Tonnes de CO2 Économisées / Jour", res_rev: "Revenus Quotidiens Potentiels",
+        ccalc_title: "Estimez Votre Impact", 
+        lbl_volume: "Volume de Gaz Torché (m³/jour)",
+        calc_note: "Déplacez le curseur pour estimer la production potentielle.",
+        res_fuel: "Production (Litres & bbl / Jour)", // ATUALIZADO
+        res_co2: "Tonnes de CO2 Économisées / Jour", 
+        res_rev: "Revenus Quotidiens Potentiels",
         email_placeholder: "email@entreprise.com", msg_success: "Inscrit !", msg_error: "Réessayez"
     },
     pt: {
@@ -83,8 +91,12 @@ const translations = {
         partners_title: "Apoiado Por & Parceiros", cta_title: "Junte-se à Revolução Energética", cta_desc: "Fique atualizado sobre nossos últimos projetos piloto e rodadas de investimento.",
         btn_subscribe: "Inscrever-se", footer_motto: "Inovando para um amanhã mais limpo.",
         ft_company: "Empresa", ft_careers: "Carreiras", ft_legal: "Legal", ft_privacy: "Política de Privacidade", ft_terms: "Termos de Uso", ft_contact: "Sede Calgary",
-        calc_title: "Estime o Seu Impacto", lbl_volume: "Volume de Gás Queimado (m³/dia)", calc_note: "Mova o cursor para estimar a produção potencial.",
-        res_fuel: "Litros de Diesel Verde / Dia", res_co2: "Toneladas de CO2 Poupadas / Dia", res_rev: "Receita Diária Potencial",
+        calc_title: "Estime o Seu Impacto", 
+        lbl_volume: "Volume de Gás Queimado (m³/dia)",
+        calc_note: "Mova o cursor para estimar a produção potencial.",
+        res_fuel: "Produção (Litros & bbl / Dia)", // ATUALIZADO
+        res_co2: "Toneladas de CO2 Poupadas / Dia", 
+        res_rev: "Receita Diária Potencial",
         email_placeholder: "email@empresa.com", msg_success: "Inscrito!", msg_error: "Erro"
     }
 };
@@ -211,7 +223,7 @@ if (newsForm) {
     });
 }
 
-// --- CALCULADORA ---
+// --- CALCULADORA (ATUALIZADA) ---
 function calculateImpact() {
     const volumeInput = document.getElementById('gasInput');
     if(!volumeInput) return;
@@ -219,22 +231,73 @@ function calculateImpact() {
     const volume = volumeInput.value;
     document.getElementById('gasValue').innerText = Number(volume).toLocaleString(currentLang);
 
+    // 1. Cálculo de Combustível (Litros)
     const fuel = Math.round(volume * 0.52);
+    
+    // 2. Cálculo de Barris (bbl) - 1 bbl ~ 158.98 Litros
+    const barrels = (fuel / 158.98).toFixed(1);
+
     const co2 = (volume * 0.0025).toFixed(1);
     const revenue = Math.round(fuel * 1.6);
 
-    document.getElementById('fuelResult').innerText = fuel.toLocaleString(currentLang);
+    // Exibir ambos: Litros e bbl
+    // Ex: "5,200 L (32.7 bbl)"
+    document.getElementById('fuelResult').innerText = 
+        `${fuel.toLocaleString(currentLang)} L (${barrels} bbl)`;
+
     document.getElementById('co2Result').innerText = co2.replace('.', ',');
     
-    // Formatação de moeda simples baseada no idioma
     let currencyPrefix = "$";
     if (currentLang === 'pt') currencyPrefix = "R$ ";
-    else if (currentLang === 'fr') currencyPrefix = "€ "; // Exemplo fictício para FR
+    else if (currentLang === 'fr') currencyPrefix = "€ ";
 
     document.getElementById('revResult').innerText = currencyPrefix + revenue.toLocaleString(currentLang);
 }
 
-// Export para testes (se ambiente Node)
-if (typeof module !== 'undefined') {
-    module.exports = { calculateImpact };
-}
+// Animação de Números (Counters)
+const counters = document.querySelectorAll('.stat-box span');
+
+const animateCounters = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const target = entry.target;
+            
+            // Tenta pegar o valor do atributo data-target ou extrai do texto
+            let finalValue = parseInt(target.getAttribute('data-target'));
+            let prefix = "";
+            let suffix = target.getAttribute('data-suffix') || "";
+
+            if (isNaN(finalValue)) {
+                const match = target.textContent.match(/(\D*)(\d+)(\D*)/);
+                if (match) {
+                    prefix = match[1] || "";
+                    finalValue = parseInt(match[2]);
+                    suffix = match[3] || "";
+                } else {
+                    return; // Ignora se não encontrar número
+                }
+            }
+
+            let startValue = 0;
+            const duration = 2000; // 2 segundos
+            const increment = finalValue / (duration / 16); // 60fps
+
+            const timer = setInterval(() => {
+                startValue += increment;
+                if (startValue >= finalValue) {
+                    target.textContent = prefix + finalValue + suffix;
+                    clearInterval(timer);
+                } else {
+                    target.textContent = prefix + Math.floor(startValue) + suffix;
+                }
+            }, 16);
+            
+            observer.unobserve(target);
+        }
+    });
+}, { threshold: 0.5 });
+
+// Inicia a observação para cada contador
+counters.forEach(counter => {
+    animateCounters.observe(counter);
+});
