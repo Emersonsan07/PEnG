@@ -32,6 +32,7 @@ const translations = {
         ft_company: "Company", ft_careers: "Careers", ft_legal: "Legal", ft_privacy: "Privacy Policy", ft_terms: "Terms of Use", ft_contact: "Calgary HQ", calc_title: "Estimate Your Impact", lbl_volume: "Flare Gas Volume (m³/day)",
 calc_note: "Move the slider to estimate potential production.",
 res_fuel: "Liters of Green Diesel / Day", res_co2: "Tons of CO2 Saved / Day", res_rev: "Potential Daily Revenue",
+        email_placeholder: "email@company.com",
 
     },
     fr: {
@@ -67,6 +68,7 @@ res_fuel: "Liters of Green Diesel / Day", res_co2: "Tons of CO2 Saved / Day", re
         calc_title: "Estimez Votre Impact", lbl_volume: "Volume de Gaz Torché (m³/jour)",
 calc_note: "Déplacez le curseur pour estimer la production potentielle.",
 res_fuel: "Litres de Diesel Vert / Jour", res_co2: "Tonnes de CO2 Économisées / Jour", res_rev: "Revenus Quotidiens Potentiels",
+        email_placeholder: "email@entreprise.com",
     },
     pt: {
         nav_mission: "Missão", nav_tech: "Tecnologia", nav_invest: "Investidores", nav_team: "Equipe",
@@ -101,6 +103,7 @@ res_fuel: "Litres de Diesel Vert / Jour", res_co2: "Tonnes de CO2 Économisées 
         calc_title: "Estime o Seu Impacto", lbl_volume: "Volume de Gás Queimado (m³/dia)",
 calc_note: "Mova o cursor para estimar a produção potencial.",
 res_fuel: "Litros de Diesel Verde / Dia", res_co2: "Toneladas de CO2 Poupadas / Dia", res_rev: "Receita Diária Potencial",
+        email_placeholder: "email@empresa.com",
     }
 };
 
@@ -119,6 +122,15 @@ function updateLanguage(lang) {
                 element.textContent = translations[lang][key];
                 element.style.opacity = 1;
             }, 200);
+        }
+    });
+
+    // Update placeholders
+    const placeholders = document.querySelectorAll('[data-i18n-placeholder]');
+    placeholders.forEach(element => {
+        const key = element.getAttribute('data-i18n-placeholder');
+        if (translations[lang] && translations[lang][key]) {
+            element.placeholder = translations[lang][key];
         }
     });
 }
@@ -153,19 +165,33 @@ document.getElementById('year').textContent = new Date().getFullYear();
 // --- FORM HANDLING (DEMO) ---
 document.querySelector('.newsletter-form').addEventListener('submit', (e) => {
     e.preventDefault();
+    const emailInput = e.target.querySelector('input[type="email"]');
+    const email = emailInput.value;
     const btn = e.target.querySelector('button');
     const originalText = btn.innerText;
     
-    btn.innerText = "Subscribed!";
-    btn.style.backgroundColor = "#fff";
-    btn.style.color = "#00D084";
-    
-    setTimeout(() => {
-        btn.innerText = originalText;
-        btn.style.backgroundColor = "";
-        btn.style.color = "";
-        e.target.reset();
-    }, 3000);
+    // Enviar para o servidor local
+    fetch('http://localhost:3000/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: email })
+    })
+    .then(response => {
+        if (response.ok) {
+            btn.innerText = "Subscribed!";
+            btn.style.backgroundColor = "#fff";
+            btn.style.color = "#00D084";
+            setTimeout(() => {
+                btn.innerText = originalText;
+                btn.style.backgroundColor = "";
+                btn.style.color = "";
+                e.target.reset();
+            }, 3000);
+        } else {
+            alert("Erro ao salvar inscrição. Verifique se o servidor está rodando.");
+        }
+    })
+    .catch(error => console.error('Erro:', error));
 });
 
 // LÓGICA DA CALCULADORA
@@ -185,3 +211,7 @@ function calculateImpact() {
 
 // Iniciar cálculo ao carregar
 calculateImpact();
+
+if (typeof module !== 'undefined') {
+    module.exports = { calculateImpact };
+}
