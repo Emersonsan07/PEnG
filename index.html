@@ -97,8 +97,32 @@
                 </div>
             </div>
         </div>
-    </section>
+    
+        <section id="process" class="section">
+  <div class="process-wrapper">
+    <!-- Coluna de texto -->
+    <div class="process-text">
+      <h2>Nosso Processo</h2>
+      <p>
+        Conheça mais sobre nossa missão e tecnologia. 
+        Assista ao vídeo institucional ao lado para entender como trabalhamos.
+      </p>
+    </div>
 
+    <!-- Coluna de vídeo -->
+    <div class="video-wrapper">
+      <iframe src="https://www.youtube.com/embed/SEU_VIDEO_ID"
+              title="Vídeo Institucional"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen>
+      </iframe>
+    </div>
+  </div>
+</section>
+
+
+    
     <section id="technology" class="section bg-light">
         <div class="container">
             <span class="tag" data-i18n="tag_research">For Researchers</span>
@@ -353,8 +377,8 @@
             <h2 data-i18n="cta_title">Transforme Passivos em Receita</h2>
             <p data-i18n="cta_desc">Fale com nossos engenheiros e descubra quanto sua operação pode lucrar.</p>
             
-            <div class="lead-form-wrapper" id="lead-form">
-                <form class="business-form" id="leadGenForm">
+            <form class="business-form" id="leadGenForm" action="https://formspree.io/f/mlgdgvny" 
+            method="POST"> 
                     <div class="form-group">
                         <input type="text" name="name" placeholder="Seu Nome" required>
                     </div>

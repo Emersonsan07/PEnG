@@ -42,7 +42,10 @@ const translations = {
         res_fuel: "Production (Liters & bbl / Day)", // ATUALIZADO
         res_co2: "Tons of CO2 Saved / Day", 
         res_rev: "Potential Daily Revenue",
-        email_placeholder: "email@company.com", msg_success: "Subscribed!", msg_error: "Try Again"
+        email_placeholder: "email@company.com", msg_success: "Subscribed!", msg_error: "Try Again",
+        form_processing: "Processing...", form_success: "We received your data! Our team will contact you.", form_error: "Error sending. Try again.",
+        form_sending: "Sending...", form_success_msg: "We received your data! Check your email soon.", form_btn_success: "Sent Successfully",
+        form_error_msg: "There was a problem. Try again or email invest@peng.ca", form_btn_error: "Error Sending"
     },
     pt: {
         nav_mission: "Missão", nav_tech: "Tecnologia", nav_invest: "Investidores", nav_team: "Equipe", nav_achievements: "Conquistas",
@@ -86,7 +89,10 @@ const translations = {
         res_fuel: "Produção (Litros & bbl / Dia)", // ATUALIZADO
         res_co2: "Toneladas de CO2 Poupadas / Dia", 
         res_rev: "Receita Diária Potencial",
-        email_placeholder: "email@empresa.com", msg_success: "Inscrito!", msg_error: "Erro"
+        email_placeholder: "email@empresa.com", msg_success: "Inscrito!", msg_error: "Erro",
+        form_processing: "Processando...", form_success: "Recebemos seus dados! Nossa equipe entrará em contato.", form_error: "Erro ao enviar. Tente novamente.",
+        form_sending: "Enviando...", form_success_msg: "Recebemos seus dados! Verifique seu e-mail em breve.", form_btn_success: "Enviado com Sucesso",
+        form_error_msg: "Houve um problema. Tente novamente ou envie para invest@peng.ca", form_btn_error: "Erro no Envio"
     },
     fr: {
         nav_mission: "Mission", nav_tech: "Technologie", nav_invest: "Investisseurs", nav_team: "Équipe", nav_achievements: "Réalisations",
@@ -118,7 +124,10 @@ const translations = {
         res_fuel: "Production (Litres & bbl / Jour)", // ATUALIZADO
         res_co2: "Tonnes de CO2 Économisées / Jour", 
         res_rev: "Revenus Quotidiens Potentiels",
-        email_placeholder: "email@entreprise.com", msg_success: "Inscrit !", msg_error: "Réessayez"
+        email_placeholder: "email@entreprise.com", msg_success: "Inscrit !", msg_error: "Réessayez",
+        form_processing: "Traitement...", form_success: "Nous avons reçu vos données ! Notre équipe vous contactera.", form_error: "Erreur lors de l'envoi. Réessayez.",
+        form_sending: "Envoi en cours...", form_success_msg: "Données reçues ! Vérifiez votre e-mail bientôt.", form_btn_success: "Envoyé avec succès",
+        form_error_msg: "Un problème est survenu. Réessayez ou écrivez à invest@peng.ca", form_btn_error: "Erreur d'envoi"
     
     }
 };

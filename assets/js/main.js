@@ -84,54 +84,64 @@ function calculateImpact() {
     document.getElementById('revResult').innerText = currencyPrefix + revenue.toLocaleString(currentLang);
 }
 
-// --- FORMULÁRIO DE LEADS (Conectado ao Backend) ---
+/* assets/js/main.js - Trecho do Formulário Atualizado */
+
+// --- FORMULÁRIO DE LEADS (Integração Formspree) ---
 const leadForm = document.getElementById('leadGenForm');
 const feedbackMsg = document.getElementById('form-feedback');
 
 if (leadForm) {
     leadForm.addEventListener('submit', async (e) => {
         e.preventDefault();
+        
         const btn = leadForm.querySelector('button');
         const originalText = btn.innerText;
         
-        btn.innerText = "Processando...";
+        // Dados do formulário
+        const formData = new FormData(leadForm);
+        
+        // Feedback visual imediato
+        btn.innerText = translations[currentLang].form_sending;
         btn.disabled = true;
 
-        const formData = {
-            name: leadForm.querySelector('[name="name"]').value,
-            email: leadForm.querySelector('[name="email"]').value,
-            company: leadForm.querySelector('[name="company"]').value,
-            position: leadForm.querySelector('[name="position"]').value,
-            interest: leadForm.querySelector('[name="interest"]').value,
-            date: new Date().toISOString()
-        };
-
         try {
-            // DEMONSTRAÇÃO: URL de teste para simular sucesso (JSONPlaceholder).
-            // Para produção real, substitua por seu backend ou serviço como Formspree/Formsubmit.
-            const response = await fetch('https://jsonplaceholder.typicode.com/posts', { 
+            // SUBSTITUA PELA SUA URL DO FORMSPREE AQUI
+            const response = await fetch('https://formspree.io/f/mlgdgvny', { 
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(formData)
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
             });
 
             if (response.ok) {
+                // Sucesso
                 feedbackMsg.style.display = 'block';
-                feedbackMsg.style.color = '#00D084';
-                feedbackMsg.innerText = "Recebemos seus dados! Nossa equipe entrará em contato.";
+                feedbackMsg.style.color = '#00D084'; // Verde sucesso
+                feedbackMsg.innerText = translations[currentLang].form_success_msg;
                 leadForm.reset();
+                btn.innerText = translations[currentLang].form_btn_success;
             } else {
-                throw new Error('Erro no servidor');
+                // Erro do Formspree (ex: spam, captcha)
+                const data = await response.json();
+                if (Object.hasOwn(data, 'errors')) {
+                    throw new Error(data["errors"].map(error => error["message"]).join(", "));
+                } else {
+                    throw new Error('Erro ao enviar.');
+                }
             }
         } catch (error) {
             console.error(error);
             feedbackMsg.style.display = 'block';
-            feedbackMsg.style.color = '#E84E1B';
-            feedbackMsg.innerText = "Erro ao enviar. Tente novamente.";
+            feedbackMsg.style.color = '#E84E1B'; // Laranja erro
+            feedbackMsg.innerText = translations[currentLang].form_error_msg;
+            btn.innerText = translations[currentLang].form_btn_error;
         } finally {
+            // Restaura o botão após 5 segundos
             setTimeout(() => {
                 btn.disabled = false;
                 btn.innerText = originalText;
+                feedbackMsg.style.display = 'none';
             }, 5000);
         }
     });
