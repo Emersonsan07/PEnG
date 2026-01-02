@@ -22,6 +22,7 @@ const translations = {
         process_title: "How It Works", step1_title: "Flare Capture", step1_desc: "Collecting wasted natural gas directly at the wellhead.",
         step2_title: "Catalytic Conversion", step2_desc: "PENG proprietary reactor transforms gas into liquid fuel.",
         step3_title: "Green Fuel", step3_desc: "Ready-to-use synthetic diesel with zero sulfur.",
+        video_process_title: "Our Process", video_process_desc: "Learn more about our mission and technology. Watch the corporate video to understand how we work.",
         tag_research: "For Researchers", tech_title: "Thermodynamic Efficiency",
         tech_card1_title: "Process Integration", tech_card1_desc: "Proprietary catalytic reform processes that minimize energy loss during the gas-to-liquid transition.",
         tech_card2_title: "Carbon Capture", tech_card2_desc: "Built-in modular systems capturing 90% of CO2 emissions directly at the source.",
@@ -45,7 +46,11 @@ const translations = {
         email_placeholder: "email@company.com", msg_success: "Subscribed!", msg_error: "Try Again",
         form_processing: "Processing...", form_success: "We received your data! Our team will contact you.", form_error: "Error sending. Try again.",
         form_sending: "Sending...", form_success_msg: "We received your data! Check your email soon.", form_btn_success: "Sent Successfully",
-        form_error_msg: "There was a problem. Try again or email invest@peng.ca", form_btn_error: "Error Sending"
+        form_error_msg: "There was a problem. Try again or email invest@peng.ca", form_btn_error: "Error Sending",
+        form_name_placeholder: "Your Name", form_email_placeholder: "Corporate Email",
+        form_company_placeholder: "Company Name", form_position_placeholder: "Position/Role",
+        form_interest_default: "I am interested in...", form_interest_demo: "Schedule Demo",
+        form_interest_quote: "Project Quote", form_interest_partnership: "Tech Partnership", form_btn_submit: "Request Contact"
     },
     pt: {
         nav_mission: "Missão", nav_tech: "Tecnologia", nav_invest: "Investidores", nav_team: "Equipe", nav_achievements: "Conquistas",
@@ -69,6 +74,7 @@ const translations = {
         process_title: "Como Funciona", step1_title: "Captura de Queima", step1_desc: "Coleta do gás natural desperdiçado diretamente na cabeça do poço.",
         step2_title: "Conversão Catalítica", step2_desc: "O reator proprietário da PENG transforma o gás em combustível líquido.",
         step3_title: "Combustível Verde", step3_desc: "Diesel sintético pronto para uso com zero enxofre.",
+        video_process_title: "Nosso Processo", video_process_desc: "Conheça mais sobre nossa missão e tecnologia. Assista ao vídeo institucional para entender como trabalhamos.",
         tag_research: "Para Pesquisadores", tech_title: "Eficiência Termodinâmica",
         tech_card1_title: "Integração de Processos", tech_card1_desc: "Processos de reforma catalítica proprietários que minimizam a perda de energia.",
         tech_card2_title: "Captura de Carbono", tech_card2_desc: "Sistemas modulares integrados que capturam 90% das emissões de CO2 na fonte.",
@@ -92,7 +98,11 @@ const translations = {
         email_placeholder: "email@empresa.com", msg_success: "Inscrito!", msg_error: "Erro",
         form_processing: "Processando...", form_success: "Recebemos seus dados! Nossa equipe entrará em contato.", form_error: "Erro ao enviar. Tente novamente.",
         form_sending: "Enviando...", form_success_msg: "Recebemos seus dados! Verifique seu e-mail em breve.", form_btn_success: "Enviado com Sucesso",
-        form_error_msg: "Houve um problema. Tente novamente ou envie para invest@peng.ca", form_btn_error: "Erro no Envio"
+        form_error_msg: "Houve um problema. Tente novamente ou envie para invest@peng.ca", form_btn_error: "Erro no Envio",
+        form_name_placeholder: "Seu Nome", form_email_placeholder: "E-mail Corporativo",
+        form_company_placeholder: "Nome da Empresa", form_position_placeholder: "Cargo/Função",
+        form_interest_default: "Tenho interesse em...", form_interest_demo: "Agendar Demonstração",
+        form_interest_quote: "Orçamento de Projeto", form_interest_partnership: "Parceria Tecnológica", form_btn_submit: "Solicitar Contato"
     },
     fr: {
         nav_mission: "Mission", nav_tech: "Technologie", nav_invest: "Investisseurs", nav_team: "Équipe", nav_achievements: "Réalisations",
@@ -104,6 +114,7 @@ const translations = {
         process_title: "Comment ça marche", step1_title: "Captage des Torchères", step1_desc: "Collecte du gaz naturel gaspillé directement à la tête du puits.",
         step2_title: "Conversion Catalytique", step2_desc: "Le réacteur propriétaire PENG transforme le gaz en carburant liquide.",
         step3_title: "Carburant Vert", step3_desc: "Diesel synthétique prêt à l'emploi sans soufre.",
+        video_process_title: "Notre Processus", video_process_desc: "Apprenez-en plus sur notre mission et notre technologie. Regardez la vidéo institutionnelle pour comprendre comment nous travaillons.",
         tag_research: "Pour les Chercheurs", tech_title: "Efficacité Thermodynamique",
         tech_card1_title: "Intégration des Procédés", tech_card1_desc: "Procédés de reformage catalytique propriétaires minimisant la perte d'énergie.",
         tech_card2_title: "Captage du Carbone", tech_card2_desc: "Systèmes modulaires intégrés capturant 90% des émissions de CO2 à la source.",
@@ -127,7 +138,10 @@ const translations = {
         email_placeholder: "email@entreprise.com", msg_success: "Inscrit !", msg_error: "Réessayez",
         form_processing: "Traitement...", form_success: "Nous avons reçu vos données ! Notre équipe vous contactera.", form_error: "Erreur lors de l'envoi. Réessayez.",
         form_sending: "Envoi en cours...", form_success_msg: "Données reçues ! Vérifiez votre e-mail bientôt.", form_btn_success: "Envoyé avec succès",
-        form_error_msg: "Un problème est survenu. Réessayez ou écrivez à invest@peng.ca", form_btn_error: "Erreur d'envoi"
-    
+        form_error_msg: "Un problème est survenu. Réessayez ou écrivez à invest@peng.ca", form_btn_error: "Erreur d'envoi",
+        form_name_placeholder: "Votre Nom", form_email_placeholder: "E-mail Professionnel",
+        form_company_placeholder: "Nom de l'Entreprise", form_position_placeholder: "Poste/Fonction",
+        form_interest_default: "Je suis intéressé par...", form_interest_demo: "Planifier une Démo",
+        form_interest_quote: "Devis de Projet", form_interest_partnership: "Partenariat Technologique", form_btn_submit: "Demander un Contact"
     }
 };
