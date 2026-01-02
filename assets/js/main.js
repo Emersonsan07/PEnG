@@ -11,11 +11,15 @@ function updateLanguage(lang) {
         document.querySelectorAll('[data-i18n]').forEach(el => {
             const key = el.getAttribute('data-i18n');
             if (translations[lang][key]) {
-                el.style.opacity = 0;
-                setTimeout(() => {
-                    el.textContent = translations[lang][key];
-                    el.style.opacity = 1;
-                }, 200);
+                if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                    el.placeholder = translations[lang][key];
+                } else {
+                    el.style.opacity = 0;
+                    setTimeout(() => {
+                        el.textContent = translations[lang][key];
+                        el.style.opacity = 1;
+                    }, 200);
+                }
             }
         });
         
@@ -146,3 +150,38 @@ if (leadForm) {
         }
     });
 }
+
+// --- ANIMAÇÃO DOS NÚMEROS (Stats) ---
+const statsObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const el = entry.target;
+            const target = parseFloat(el.getAttribute('data-target'));
+            
+            if (!isNaN(target)) {
+                const suffix = el.getAttribute('data-suffix') || '';
+                let startTimestamp = null;
+                const duration = 2000; // Duração da animação: 2 segundos
+
+                const step = (timestamp) => {
+                    if (!startTimestamp) startTimestamp = timestamp;
+                    const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                    const easeProgress = 1 - Math.pow(1 - progress, 3); // Efeito de desaceleração (Ease Out)
+                    
+                    const currentVal = Math.floor(easeProgress * target);
+                    el.innerText = currentVal + suffix;
+
+                    if (progress < 1) {
+                        window.requestAnimationFrame(step);
+                    } else {
+                        el.innerText = target + suffix;
+                    }
+                };
+                window.requestAnimationFrame(step);
+            }
+            statsObserver.unobserve(el); // Executa apenas uma vez
+        }
+    });
+}, { threshold: 0.5 });
+
+document.querySelectorAll('[data-target]').forEach((el) => statsObserver.observe(el));
