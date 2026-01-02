@@ -99,27 +99,27 @@
         </div>
     
         <section id="process" class="section">
-  <div class="process-wrapper">
-    <!-- Coluna de texto -->
-    <div class="process-text">
-      <h2>Nosso Processo</h2>
-      <p>
-        Conheça mais sobre nossa missão e tecnologia. 
-        Assista ao vídeo institucional ao lado para entender como trabalhamos.
-      </p>
-    </div>
+             <div class="process-wrapper">
+                <!-- Coluna de texto -->
+                <div class="process-text">
+                <h2 data-i18n="video_process_title">Our Process</h2>
+                <p data-i18n="video_process_desc">
+                    Learn more about our mission and technology. 
+                    Watch the corporate video to understand how we work.
+                </p>
+                </div>
 
-    <!-- Coluna de vídeo -->
-    <div class="video-wrapper">
-      <iframe src="https://www.youtube.com/embed/SEU_VIDEO_ID"
-              title="Vídeo Institucional"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen>
-      </iframe>
-    </div>
-  </div>
-</section>
+                <!-- Coluna de vídeo -->
+                <div class="video-wrapper">
+                <iframe src="assets/img/MRU Tour.mp4"
+                        title="Vídeo Institucional"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                </iframe>
+                </div>
+            </div>
+        </section>
 
 
     
@@ -380,24 +380,24 @@
             <form class="business-form" id="leadGenForm" action="https://formspree.io/f/mlgdgvny" 
             method="POST"> 
                     <div class="form-group">
-                        <input type="text" name="name" placeholder="Seu Nome" required>
+                        <input type="text" name="name" placeholder="Seu Nome" data-i18n="form_name_placeholder" required>
                     </div>
                     <div class="form-group">
-                        <input type="email" name="email" placeholder="E-mail Corporativo" required>
+                        <input type="email" name="email" placeholder="E-mail Corporativo" data-i18n="form_email_placeholder" required>
                     </div>
                     <div class="form-grid-2">
-                        <input type="text" name="company" placeholder="Nome da Empresa" required>
-                        <input type="text" name="position" placeholder="Cargo/Função">
+                        <input type="text" name="company" placeholder="Nome da Empresa" data-i18n="form_company_placeholder" required>
+                        <input type="text" name="position" placeholder="Cargo/Função" data-i18n="form_position_placeholder">
                     </div>
                     <div class="form-group">
                         <select name="interest">
-                            <option value="" disabled selected>Tenho interesse em...</option>
-                            <option value="demo">Agendar Demonstração</option>
-                            <option value="quote">Orçamento de Projeto</option>
-                            <option value="partnership">Parceria Tecnológica</option>
+                            <option value="" disabled selected data-i18n="form_interest_default">Tenho interesse em...</option>
+                            <option value="demo" data-i18n="form_interest_demo">Agendar Demonstração</option>
+                            <option value="quote" data-i18n="form_interest_quote">Orçamento de Projeto</option>
+                            <option value="partnership" data-i18n="form_interest_partnership">Parceria Tecnológica</option>
                         </select>
                     </div>
-                    <button type="submit" class="btn primary" style="width: 100%; margin-top: 1rem;">Solicitar Contato</button>
+                    <button type="submit" class="btn primary" style="width: 100%; margin-top: 1rem;" data-i18n="form_btn_submit">Solicitar Contato</button>
                 </form>
                 <p id="form-feedback" style="display:none; margin-top:1rem; font-weight:bold;"></p>
             </div>
